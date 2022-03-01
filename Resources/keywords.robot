@@ -15,7 +15,6 @@ Verify Page Contains
 Check Date On Page
     ${date} =    Get Current Date  result_format=%Y-%m-%d
     ${attr}=  Get Element Attribute  //*[@id="start"]  value
-    Log  Result ${attr}
     ${infotiv_date} =  Convert Date  ${attr}  result_format=%Y-%m-%d
     Should Be Equal    ${date}    ${infotiv_date}
 

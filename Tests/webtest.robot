@@ -43,3 +43,8 @@ User Can Get To Choose A Car Make In Car List
     Go To Car List
     Selecting Car Brand In List
     End Web Test
+
+
+
+
+    # Fixa att testet stänger, ändra till suite setups kanske, fixa dokumentet  och sedan VG del
