@@ -1,8 +1,11 @@
 *** Settings ***
 Documentation  Testing the browser "INFOTIV CAR RENTAL" and it's services focused on Date&Time
 ...  and being able to see the car selection list.
+Resource  ../Resources/keywords.robot
 Library  SeleniumLibrary
 Library  DateTime
+Test Setup  Begin Web Test
+Test Teardown  End Web Test
 
 *** Variables ***
 ${BROWSER}  chrome
@@ -11,29 +14,6 @@ ${date} =	Get Current Date
 ${element_text}  Get Text
 ${infotiv_date}  convert into date
 
-
-*** Keywords ***
-Begin Web Test
-    Open Browser  about:blank  ${BROWSER}
-
-Go To Web Page
-    Maximize Browser Window
-    Go To  ${URL}
-    Wait Until Page Contains  Infotiv Car Rental
-
-Verify Page Contains
-    Click Element   //*[@id="title"]
-    Wait Until Page Contains   When do you want to make your trip?
-    ${date} =	Get Current Date  result_format=%Y-%m-%d
-    #${element_text} =  Get Text  //*[@id="start"]
-    ${attr}=  Get Element Attribute  //*[@id="start"]  value
-    Log  Result ${attr}
-    ${infotiv_date} =  Convert Date  ${attr}  result_format=%Y-%m-%d
-    Should Be Equal	${date}	${infotiv_date}
-
-End Web Test
-       Close Browser
-
 *** Test Cases ***
 User Can Access Website And See Current Date
     [Documentation]  Once accessing the website; being able to see the selection of dates
@@ -41,11 +21,25 @@ User Can Access Website And See Current Date
     Begin Web Test
     Go To Web Page
     Verify Page Contains
+    Check Date On Page
     End Web Test
 
 
 User Can Get To Car Selection Page
     [Documentation]  Once accessing the Car selection page; getting to the car selection list.
     [Tags]  CarList
+    Begin Web Test
+    Go To Web Page
+    Verify Page Contains
+    Go To Car List
+    End Web Test
 
-
+User Can Get To Choose A Car Make In Car List
+    [Documentation]  Once accessing the website; getting to choose what brand of cars
+    [Tags]  ChoosingCarBrand
+    Begin Web Test
+    Go To Web Page
+    Verify Page Contains
+    Go To Car List
+    Selecting Car Brand In List
+    End Web Test
