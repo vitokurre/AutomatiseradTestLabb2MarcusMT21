@@ -24,25 +24,15 @@ Go To Web Page
 Verify Page Contains
     Click Element   //*[@id="title"]
     Wait Until Page Contains   When do you want to make your trip?
-    ${date} =	Get Current Date
+    ${date} =	Get Current Date  result_format=%Y-%m-%d
     #${element_text} =  Get Text  //*[@id="start"]
-
-    ${value}=  Get Element Attribute  ${//*[@id="start"]}  attribute=title
-
-    ${id}=	Get Element Attribute	css:h1	id
-
-    Log  Result ${value}
-    ${infotiv_date} =  Convert Date  ${element_text}
+    ${attr}=  Get Element Attribute  //*[@id="start"]  value
+    Log  Result ${attr}
+    ${infotiv_date} =  Convert Date  ${attr}  result_format=%Y-%m-%d
     Should Be Equal	${date}	${infotiv_date}
 
 End Web Test
        Close Browser
-
-
-
-
-
-
 
 *** Test Cases ***
 User Can Access Website And See Current Date
