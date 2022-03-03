@@ -38,5 +38,16 @@ User Can Get To Choose A Car Make In Car List
     Selecting Car Brand In List
 
 
+User Can Log In And Rent A Car
+    [Documentation]  Once accessing the website; rent a car and confirm booking
+    [Tags]  VG_test
+    Given User Is Logged In
+    When User Books Car
+    And User Pays With Creditcard
+    Then Car Has Been Booked
 
-    # F fixa dokumentet  och sedan VG del
+#Enskilt skapa ett testfall som testar navigations-flödet av att boka en bil.
+#• Testet skall navigera från start-sida, logga in på ett redan existerande konto, boka en bil.
+#• Testfallet skall ha taggen VG_test
+#• Testfallet skall skrivas med Gherkin-syntax
+

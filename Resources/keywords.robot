@@ -29,3 +29,34 @@ Selecting Car Brand In List
 
 End Web Test
     Close Browser
+
+User Is Logged In
+    Go To Web Page
+    Input Text  //*[@id="email"]  stig.stigsson@hotmail.com
+    Input Text  //*[@id="password"]  stig123
+    Click Element  //*[@id="login"]
+    Wait Until Page Contains  You are signed in as Stig
+
+User Books Car
+    Click Element  //*[@id="continue"]
+    Wait Until Page Contains  What would you like to drive?
+    Click Element  //*[@id="bookQ7pass7"]
+    Wait Until Page Contains  Confirm booking of Audi Q7
+
+User Pays With Creditcard
+    Input Text  //*[@id="cardNum"]  1234567891011121
+    Input Text  //*[@id="fullName"]  Stig Stigsson
+    Input Text  //*[@id="cvc"]  123
+    Click Element  //*[@id="confirm"]
+    Wait Until Page Contains  You can view your booking on your page
+    Click Element  //*[@id="mypage"]
+
+Car Has Been Booked
+    ${date} =    Get Current Date  result_format=%Y-%m-%d
+    ${text}=  Get Text  //*[@id="endDate1"]
+    ${infotiv_date} =  Convert Date  ${text}  result_format=%Y-%m-%d
+    Should Be Equal    ${date}    ${infotiv_date}
+
+
+
+}
