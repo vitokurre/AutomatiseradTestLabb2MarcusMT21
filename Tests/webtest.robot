@@ -38,5 +38,12 @@ User Can Get To Choose A Car Make In Car List
     Selecting Car Brand In List
 
 
+User Can Log In And Rent A Car
+    [Documentation]  Once accessing the website; rent a car and confirm booking
+    [Tags]  VG_test
+    Given User Is Logged In
+    When User Books Car
+    And User Pays With Creditcard
+    Then Car Has Been Booked
 
-    # F fixa dokumentet  och sedan VG del
+
