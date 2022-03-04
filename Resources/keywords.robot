@@ -60,7 +60,3 @@ Car Has Been Booked
     Click Element  id:unBook1
     Handle Alert
     Wait Until Page Contains  has been Returned
-
-
-
-}
