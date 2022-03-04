@@ -11,9 +11,15 @@ Verify Page Contains
     Click Element   //*[@id="title"]
     Wait Until Page Contains   When do you want to make your trip?
 
-Check Date On Page
+Check Date On Page Start
     ${date} =    Get Current Date  result_format=%Y-%m-%d
     ${attr}=  Get Element Attribute  //*[@id="start"]  value
+    ${infotiv_date} =  Convert Date  ${attr}  result_format=%Y-%m-%d
+    Should Be Equal    ${date}    ${infotiv_date}
+
+Check Date On Page End
+    ${date} =    Get Current Date  result_format=%Y-%m-%d
+    ${attr}=  Get Element Attribute  //*[@id="end"]  value
     ${infotiv_date} =  Convert Date  ${attr}  result_format=%Y-%m-%d
     Should Be Equal    ${date}    ${infotiv_date}
 

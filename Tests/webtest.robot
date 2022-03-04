@@ -15,12 +15,20 @@ ${element_text}  Get Text
 ${infotiv_date}  convert into date
 
 *** Test Cases ***
-User Can Access Website And See Current Date
+User Can Access Website And See Current Date Start
     [Documentation]  Once accessing the website; being able to see the selection of dates
     [Tags]  Time
     Go To Web Page
     Verify Page Contains
-    Check Date On Page
+    Check Date On Page Start
+
+User Can Access Website And See Current Date End
+    [Documentation]  Once accessing the website; being able to see the selection of dates
+    [Tags]  Time
+    Go To Web Page
+    Verify Page Contains
+    Check Date On Page End
+
 
 User Can Get To Car Selection Page
     [Documentation]  Once accessing the Car selection page; getting to the car selection list.
