@@ -8,7 +8,7 @@ Test Setup    Begin Web Test
 Test Teardown  End Web Test
 
 *** Variables ***
-${BROWSER}  chrome
+${BROWSER}  headlesschrome
 ${URL}  http://rental9.infotiv.net/
 ${date} =	Get Current Date
 ${element_text}  Get Text

@@ -23,6 +23,7 @@ Go To Car List
     Wait Until Page Contains   What would you like to drive?
 
 Selecting Car Brand In List
+    Wait Until Page Contains Element  //*[@id="ms-list-1"]/button
     Click Element   //*[@id="ms-list-1"]/button
     Click Element   //*[@id="ms-list-1"]/div/ul/li[3]/label
     Wait Until Page Contains  Roadster
@@ -52,10 +53,13 @@ User Pays With Creditcard
     Click Element  //*[@id="mypage"]
 
 Car Has Been Booked
-    ${date} =    Get Current Date  result_format=%Y-%m-%d
-    ${text}=  Get Text  //*[@id="endDate1"]
+    ${date} =  Get Current Date  result_format=%Y-%m-%d
+    ${text}=   Get Text  //*[@id="endDate1"]
     ${infotiv_date} =  Convert Date  ${text}  result_format=%Y-%m-%d
     Should Be Equal    ${date}    ${infotiv_date}
+    Click Element  id:unBook1
+    Handle Alert
+    Wait Until Page Contains  has been Returned
 
 
 
